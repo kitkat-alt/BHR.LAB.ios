@@ -1,0 +1,88 @@
+<style>
+  /* 1. Import ฟอนต์ Sarabun เพื่อความสวยงามและอ่านง่ายแบบไทย */
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+  /* 2. ตั้งค่าพื้นฐาน */
+  body {
+    font-family: 'Sarabun', sans-serif;
+    /* เตรียมพื้นหลัง Liquid แบบเคลื่อนไหว */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #1d1d1f; /* สีเทาเข้มแบบ iOS */
+  }
+
+  /* Animation พื้นหลังไหลไปมา */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* 3. สร้าง Class "Glass" (กระจก) - หัวใจสำคัญของดีไซน์นี้ */
+  
+  /* กระจกใสพื้นฐาน (ใช้กับ Card ทั่วไป) */
+  .glass {
+    background: rgba(255, 255, 255, 0.65); /* ขาวโปร่งแสง */
+    backdrop-filter: blur(20px) saturate(180%); /* เบลอฉากหลัง + เร่งสีให้สดแบบ iOS */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* ขอบขาวจางๆ */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1); /* เงานุ่มๆ */
+  }
+
+  /* กระจกเข้ม (ใช้กับ Navbar หรือส่วนที่ต้องการเน้น) */
+  .glass-heavy {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+  }
+
+  /* Input แบบกระจก (ช่องกรอกข้อมูล) */
+  .glass-input {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #1d1d1f;
+    transition: all 0.3s ease;
+  }
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+
+  /* ปุ่มกดแบบกระจก */
+  .glass-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+  .glass-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* 4. Utility อื่นๆ */
+  /* ซ่อน Scrollbar */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ซ่อนลูกศรในช่องใส่ตัวเลข */
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; margin: 0; 
+  }
+  input[type=number] { -moz-appearance: textfield; }
+  
+  /* Animation ลอยตัวเล็กน้อย */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+</style>
